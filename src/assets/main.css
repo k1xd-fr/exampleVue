@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Montserrat', sans-serif;
+}
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* !TheMainInfo */
+/* Circle */
+.circle {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  margin: 0 -1px 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.pink {
+  background-image: linear-gradient(#e73d71, #ee7399);
+}
+
+.green {
+  background-color: #4fbdc0;
+}
+
+.blue {
+  background-color: #84a6d5;
+}
+
+.orange {
+  background-color: #eb9958;
+}
+
+/* Circle */
+.imgIcon {
+  max-width: 96px;
+  max-height: 96px;
+  z-index: 10;
+}
+/* !TheMainInfo */
