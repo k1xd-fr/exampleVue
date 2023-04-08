@@ -1,11 +1,21 @@
 <script setup>
 import { ref } from "vue";
+import { sendData } from "../api/request";
 import VInput from "./shared/VInput.vue"
 
-const contact = ref({
-    name: '',
-    email: '',
-}) 
+
+
+const name = ref('');
+const email = ref('');
+
+const submitForm = (e) => {
+    e.preventDefault()
+    const data = {
+        name: name.value,
+        email: email.value,
+    }
+    sendData(data)
+}
 
 </script>
 <template>
@@ -16,15 +26,15 @@ const contact = ref({
                 solution you need to
                 build your online business.</p>
             <div class="container">
-                <form class="form">
+                <form @submit.prevent="submitForm" class="form">
                     <div class="form-group">
                         <label class="label">Name</label>
-                        <v-input :v-model="contact" class="input" id="name-id" name="name" placeholder="Enter your Name"></v-input>
+                        <v-input v-model="name" class="input" name="name" type="name" placeholder="Enter your Name" />
                     </div>
                     <div class="form-group">
                         <label class="label">Email</label>
-                        <v-input :v-model="contact" class="input" id="email-id" name="email"
-                            placeholder="Enter a valid email address"></v-input>
+                        <v-input v-model="email" class="input" name="email" type="email"
+                            placeholder="Enter a valid email address" />
                     </div>
                     <div class="form-group">
                         <v-button class="btn">Submit</v-button>
@@ -136,4 +146,5 @@ const contact = ref({
     border: 0 none transparent;
     text-align: center;
     padding: 10px 30px;
-}</style>
+}
+</style>

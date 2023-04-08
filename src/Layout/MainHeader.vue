@@ -1,6 +1,4 @@
 <script setup>
-import VLogo from '../components/shared/VLogo.vue';
-
 
 </script>
 
@@ -8,17 +6,21 @@ import VLogo from '../components/shared/VLogo.vue';
   <header>
     <VLogo />
     <nav>
-      <!-- ?Hamburger -->
+      <VHamburger />
     </nav>
   </header>
 </template>
 
 <style scoped>
 header {
+  align-items: center;
   max-width: 1140px;
   display: flex;
   background-color: white;
   padding: 20px;
-  margin: 0 auto ;
+  margin: 0 auto;
+  justify-content: space-between;
 }
+
+
 </style>

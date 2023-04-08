@@ -1,22 +1,20 @@
 
 <template>
-    <section class="container wrapper">
-        <div class="container ">
-            <div class="info">
-                <h1>
-                    We create <span class="black-text">online shops</span>
-                </h1>
-                <p class="p">
-                    Accumsan in nisl nisi scelerisque. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Maecenas
-                    ultricies mi eget mauris pharetra et ultrices neque.
-                </p>
-                <p>
-                    Image from <span><a class="link-freepik" href="https://www.freepik.com/">Freepik</a></span>
-                </p>
-                <a href="https://nicepage.com/c/counter-html-templates"><v-button class="btn">read more</v-button></a>
-            </div>
-            <img src="../../img/ShoppingConcepts.jpeg" alt="ShoppingConcepts">
+    <section class="container">
+        <div class="info">
+            <h1>
+                We create <span class="black-text">online shops</span>
+            </h1>
+            <p class="p">
+                Accumsan in nisl nisi scelerisque. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Maecenas
+                ultricies mi eget mauris pharetra et ultrices neque.
+            </p>
+            <p>
+                Image from <span><a class="link-freepik" href="https://www.freepik.com/">Freepik</a></span>
+            </p>
+            <a href="https://nicepage.com/c/counter-html-templates"><v-button class="btn">read more</v-button></a>
         </div>
+        <img src="../../img/ShoppingConcepts.jpeg" alt="ShoppingConcepts">
     </section>
 </template>
 
@@ -24,17 +22,11 @@
 .container {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     background-color: rgb(220, 220, 220);
-    min-height: 700px;
     max-width: 100%;
-    width: calc(((100% - 1140px) / 2) + 1140px);
-    margin: 0 0 0 auto;
-}
-
-.wrapper {
-    background-color: rgb(220, 220, 220);
-    width: 100% !important;
+    align-items: center;
+    justify-content: center;
 }
 
 .info {
@@ -81,14 +73,6 @@ h1 {
     font-style: normal;
 }
 
-p {
-    max-width: 353.25px;
-    line-height: 1.8;
-    font-size: 1.125rem;
-    font-weight: 500;
-    font-style: normal;
-}
-
 .black-text {
     color: #111111;
     font-weight: 700;
@@ -109,8 +93,72 @@ p {
 }
 
 img {
-    max-width: 849px;
+    width: 700px;
+    contain: content;
 }
-</style>
+
+@media (max-width: 1199px) {
+    .container {
+        padding: 20px;
+    }
+
+    img {
+        max-width: 650px;
+    }
+
+    h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .container {
+        min-height: 239px;
+        flex-wrap: wrap;
+        max-width: max-content;
+    }
+
+    .info {
+        margin: 0 auto;
+    }
+
+    img {
+        min-height: 564px
+    }
+
+    h1 {
+        font-size: 2.25rem;
+        margin-top: 0;
+        max-width: max-content;
+    }
+}
+
+
+
+@media (max-width: 767px) {
+
+
+    img {
+        min-height: 468px;
+        padding: 10px;
+    }
+}
+
+@media (max-width: 575px) {
+    .container {
+        justify-content: center;
+
+    }
+
+    .info {
+        margin: 0;
+        padding: 30px;
+    }
+
+    img {
+        max-width: 290px;
+        min-height: 290px;
+    }
+}</style>
 
 
