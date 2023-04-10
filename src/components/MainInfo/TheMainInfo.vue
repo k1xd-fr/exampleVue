@@ -24,7 +24,7 @@ import VButton from '../shared/VButton.vue';
 
         </div>
         <div>
-            <div style="height:330px ;">
+            <div style="min-height:330px ;">
                 <div class="MainInfoFoot">
                     <div class="MainInfoCards">
                         <MainInfoCard title="Customize your online store">
@@ -60,10 +60,16 @@ import VButton from '../shared/VButton.vue';
                 </div>
             </div>
         </div>
-        <div style="display:flex; justify-content: center;">
-            <a href="https://nicepage.com/c/counter-html-templates">
-                <v-button class="btn">Learn more</v-button>
-            </a>
+        <div style="display: flex; justify-content: center;">
+            <v-button class="btn" :click="toggleModal">Learn more</v-button>
+            <transition name="fade">
+                <VBackdrop v-if="showModal" @close="showModal = false"></VBackdrop>
+            </transition>
+            <transition name="slide-down">
+                <VModal v-if="showModal" @close="showModal = false" :title="'My Modal Title'"
+                    :content="'Some modal content.'">
+                </VModal>
+            </transition>
         </div>
     </section>
 </template>
@@ -71,6 +77,9 @@ import VButton from '../shared/VButton.vue';
 .container {
     max-width: 1470px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
 }
 
 .MainInfo {
@@ -81,6 +90,7 @@ import VButton from '../shared/VButton.vue';
 
 .MainInfoFoot {
     position: relative;
+    min-height: auto;
     margin: 0 auto;
     max-width: 1140px;
 }
@@ -90,12 +100,13 @@ import VButton from '../shared/VButton.vue';
     top: -75px;
     display: flex;
     gap: 15px;
+
 }
 
 .info__title {
     color: inherit;
     text-align: center;
-    width: 886px;
+    max-width: 886px;
     font-size: 3.4375rem;
     margin: 0 auto;
     font-weight: 400;
@@ -121,5 +132,33 @@ import VButton from '../shared/VButton.vue';
 .btn:hover {
     background-color: #111111 !important;
     color: white;
+}
+
+@media (max-width: 1199px) {
+    .MainInfoCards {
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        padding: 30px;
+    }
+    .btn{
+        margin-top: 400px;
+    }
+}
+
+@media (max-width: 767px) {
+    .info__title {
+        font-size: 2.5rem;
+    }
+
+}
+
+@media (max-width: 655px) {
+    .info__title {
+        font-size: 1.875rem;
+    }
+    .btn{
+        margin-top: 1200px;
+    }
 }
 </style>

@@ -1,3 +1,17 @@
+<script setup>
+
+import { ref } from 'vue';
+import VModal from './UI/VModal.vue';
+import VBackdrop from './UI/VBackdrop.vue';
+
+
+const showModal = ref(false)
+
+const toggleModal = () => {
+    showModal.value = !showModal.value
+}
+</script>
+
 
 <template>
     <section class="container">
@@ -12,7 +26,17 @@
             <p>
                 Image from <span><a class="link-freepik" href="https://www.freepik.com/">Freepik</a></span>
             </p>
-            <a href="https://nicepage.com/c/counter-html-templates"><v-button class="btn">read more</v-button></a>
+            <div>
+                <v-button class="btn" :click="toggleModal">Read more</v-button>
+                <transition name="fade">
+                    <VBackdrop v-if="showModal" @close="showModal = false"></VBackdrop>
+                </transition>
+                <transition name="slide-down">
+                    <VModal v-if="showModal" @close="showModal = false" :title="'My Modal Title'"
+                        :content="'Some modal content.'">
+                    </VModal>
+                </transition>
+            </div>
         </div>
         <img src="../../img/ShoppingConcepts.jpeg" alt="ShoppingConcepts">
     </section>
@@ -103,7 +127,7 @@ img {
     }
 
     img {
-        max-width: 650px;
+        max-width: 100%;
     }
 
     h1 {
@@ -122,9 +146,7 @@ img {
         margin: 0 auto;
     }
 
-    img {
-        min-height: 564px
-    }
+    
 
     h1 {
         font-size: 2.25rem;
@@ -138,10 +160,7 @@ img {
 @media (max-width: 767px) {
 
 
-    img {
-        min-height: 468px;
-        padding: 10px;
-    }
+   
 }
 
 @media (max-width: 575px) {
@@ -155,10 +174,7 @@ img {
         padding: 30px;
     }
 
-    img {
-        max-width: 290px;
-        min-height: 290px;
-    }
-}</style>
+}
+</style>
 
 
