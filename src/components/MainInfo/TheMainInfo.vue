@@ -5,8 +5,15 @@ import CodeIcon from '../icons/CodeIcon.vue';
 import HomeIcon from '../icons/HomeIcon.vue';
 import TeamIcon from '../icons/TeamIcon.vue';
 import MainInfoCard from './MainInfoCard.vue';
-import VButton from '../shared/VButton.vue';
-// eslint-disable-next-line no-unused-vars
+import VModal from '.././UI/VModal.vue';
+import VBackdrop from '.././UI/VBackdrop.vue';
+import { ref } from 'vue';
+
+const showModal = ref(false)
+
+const toggleModal = () => {
+    showModal.value = !showModal.value
+}
 
 </script>
 
@@ -159,6 +166,11 @@ import VButton from '../shared/VButton.vue';
     }
     .btn{
         margin-top: 1200px;
+    }
+}
+@media (max-width: 325px) {
+    .btn{
+        margin-top: 1400px;
     }
 }
 </style>

@@ -39,7 +39,6 @@ const submitForm = (e) => {
                     <div class="form-group">
                         <v-button class="btn">Submit</v-button>
                     </div>
-
                 </form>
             </div>
         </div>
@@ -49,6 +48,7 @@ const submitForm = (e) => {
 .consult {
     background-color: #e73d71;
     text-align: center;
+    margin-top: 80px;
 }
 
 .consult__title {
@@ -56,6 +56,7 @@ const submitForm = (e) => {
     font-size: 55px;
     font-weight: 400;
     line-height: 60.6px;
+    padding: 10px;
 
 }
 
@@ -94,19 +95,58 @@ const submitForm = (e) => {
 .form-group {
     display: flex;
     flex: 0 0 auto;
-    flex-flow: row nowrap;
     align-items: center;
     margin-bottom: 0;
     flex-grow: 1;
 }
 
+@media (max-width:991px) {
+    .container{
+        max-width: 674px;
+    }
+    .form {
+        justify-content: center;
+        flex-grow: 0;
+        margin: 0 auto;
+    }
+    .input{
+        width: 100%;
+    }
+}
+
+@media (max-width: 767px){
+    .container{
+        max-width: 510px;
+    }
+    .form{
+        flex-direction: column;
+        max-width: 100%;
+        width: 100%;
+    }
+     .form-group{
+        width: 100%;
+    }
+    .input{
+        width: 100% !important;
+    }
+    .btn{
+        width: 100%;
+    }
+}
+@media (max-width:575px) {
+    .container{
+         max-width: 340px;
+    }
+   .consult__title {
+    font-size: 30px;
+   }
+}
 .input {
     display: flex;
-    width: 251px;
+    width: 100%;
     vertical-align: middle;
     flex-grow: 1;
     flex-shrink: 1;
-    min-width: 0px;
     align-items: center;
     justify-content: center;
     margin-bottom: 0;

@@ -49,7 +49,23 @@
 }
 img{
     object-fit: contain;
-    max-width: 25%;
+    width: 25%;
     padding: 35px 20px;
+}
+@media (max-width: 767px) {
+    img{
+    width: 50%;
+    margin: 0 auto;
+    padding: 50px;
+}
+}
+@media (max-width: 535px) {
+    .logos__title{
+        font-size: 1.875rem;
+    }
+    img{
+    width: 75%;
+    margin: 0 auto;
+}
 }
 </style>

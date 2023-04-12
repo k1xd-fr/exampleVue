@@ -29,7 +29,7 @@ p {
 }
 
 .pink {
-  background-image: linear-gradient(#e73d71, #ee7399);
+  background: linear-gradient(#e73d71, #ee7399);
 }
 
 .green {
