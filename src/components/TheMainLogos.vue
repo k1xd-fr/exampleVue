@@ -24,7 +24,7 @@
     min-height: 494px;
 }
 .logos__title{
-    margin: 53px auto 0;
+    margin:0 auto;
     padding-top: 53px;
     max-width: 735px;
     color: white;

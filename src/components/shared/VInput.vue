@@ -2,7 +2,6 @@
     <input :value="modelValue" @input="onInput" :type="type" :placeholder="placeholder" required>
 </template>
 <script setup>
-import { defineProps, defineEmits } from 'vue';
 const emit = defineEmits(['update:modelValue'])
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({

@@ -2,6 +2,7 @@ import CartIcon from "./CartIcon.vue"
 import CodeIcon from "./CodeIcon.vue"
 import HomeIcon from "./HomeIcon.vue"
 import TeamIcon from "./TeamIcon.vue"
+import CheckMarkIcon from "./CheckMarkIcon.vue"
 
 const components = [
     {
@@ -19,6 +20,10 @@ const components = [
     {
       name: 'TeamIcon',
       component: TeamIcon
+    },
+    {
+      name: "CheckMark",
+      component: CheckMarkIcon,
     }
   ]
   
