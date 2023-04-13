@@ -7,6 +7,7 @@ import TheMainConsultation from '../components/TheMainConsultation.vue';
 import TheMainFeatures from '../components/MainFeatures/TheMainFeatures.vue'
 import TheMainGetYoursToday from "../components/TheMainGetYoursToday.vue"
 import TheMainLogos from '../components/TheMainLogos.vue';
+import TheMainPersonExp from '../components/MainPersonExp/TheMainPersonExp.vue';
 
 </script>
 <template>
@@ -17,6 +18,7 @@ import TheMainLogos from '../components/TheMainLogos.vue';
     <the-main-consultation/>
     <the-main-features/>
     <the-main-get-yours-today/>
+    <the-main-person-exp/>
     <the-main-logos/>
 </template>
 <style scoped>
