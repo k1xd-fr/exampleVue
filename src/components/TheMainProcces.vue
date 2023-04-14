@@ -28,10 +28,10 @@ window.addEventListener("scroll", function () {
 
     const speedinterval = setInterval(() => {
       speed.value += 100
-      if (speed.value <= 100) {
+      if (speed.value <= 1000) {
         clearInterval(speedinterval)
       }
-    }, 1000)
+    }, 100)
   } else {
     counter.value = 0
     speed.value = 100
