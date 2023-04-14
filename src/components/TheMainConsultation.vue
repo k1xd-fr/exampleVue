@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from 'vue'
 import { sendData } from '../api/request'
-import VInput from './shared/VInput.vue'
 
 let success = ref(false)
 

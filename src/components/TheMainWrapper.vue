@@ -1,8 +1,6 @@
 <script setup>
 
 import { ref } from 'vue';
-import VModal from './UI/VModal.vue';
-import VBackdrop from './UI/VBackdrop.vue';
 
 
 const showModal = ref(false)

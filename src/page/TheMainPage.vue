@@ -6,8 +6,10 @@ import TheMainOurWay from '../components/MainOurWay/TheMainOurWay.vue';
 import TheMainConsultation from '../components/TheMainConsultation.vue';
 import TheMainFeatures from '../components/MainFeatures/TheMainFeatures.vue'
 import TheMainGetYoursToday from "../components/TheMainGetYoursToday.vue"
-import TheMainLogos from '../components/TheMainLogos.vue';
 import TheMainPersonExp from '../components/MainPersonExp/TheMainPersonExp.vue';
+import TheMainPurchase from "../components/MainPurchase/TheMainPurchase.vue"
+import TheMainProcces from "../components/TheMainProcces.vue"
+import TheMainLogos from '../components/TheMainLogos.vue';
 
 </script>
 <template>
@@ -19,6 +21,8 @@ import TheMainPersonExp from '../components/MainPersonExp/TheMainPersonExp.vue';
     <the-main-features/>
     <the-main-get-yours-today/>
     <the-main-person-exp/>
+    <the-main-purchase/>
+    <the-main-procces/>
     <the-main-logos/>
 </template>
 <style scoped>

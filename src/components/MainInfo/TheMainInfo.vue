@@ -1,12 +1,6 @@
 
 <script setup>
-import CartIcon from '../icons/CartIcon.vue';
-import CodeIcon from '../icons/CodeIcon.vue';
-import HomeIcon from '../icons/HomeIcon.vue';
-import TeamIcon from '../icons/TeamIcon.vue';
 import MainInfoCard from './MainInfoCard.vue';
-import VModal from '.././UI/VModal.vue';
-import VBackdrop from '.././UI/VBackdrop.vue';
 import { ref } from 'vue';
 
 const showModal = ref(false)
