@@ -40,6 +40,4 @@
 .link {
   color: #f6b3d1;
 }
-.text {
-}
 </style>

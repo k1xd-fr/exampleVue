@@ -10,6 +10,7 @@ import TheMainPersonExp from '../components/MainPersonExp/TheMainPersonExp.vue';
 import TheMainPurchase from "../components/MainPurchase/TheMainPurchase.vue"
 import TheMainProcces from "../components/TheMainProcces.vue"
 import TheMainLogos from '../components/TheMainLogos.vue';
+import MainFooter from "../Layout/MainFooter.vue"
 
 </script>
 <template>
@@ -24,6 +25,7 @@ import TheMainLogos from '../components/TheMainLogos.vue';
     <the-main-purchase/>
     <the-main-procces/>
     <the-main-logos/>
+    <main-footer/>
 </template>
 <style scoped>
 

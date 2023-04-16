@@ -97,6 +97,10 @@ const toggleModal = () => {
     border-radius: 10px !important;
     margin-bottom: 30px;
 }
+.btn:hover{
+    color:white;
+    background-color: inherit;
+}
 
 ul {
     display: flex;
