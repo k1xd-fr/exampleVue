@@ -3,7 +3,7 @@
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
     num: {
-        type:Number , 
+        type: String  || Number, 
         default: 2023,
     },
     desciption:{

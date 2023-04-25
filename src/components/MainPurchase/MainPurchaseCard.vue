@@ -28,8 +28,7 @@ const props = defineProps({
         default: 'Underfined'
     },
     num: {
-        type: Number,
-        default: null
+        type:String,
     },
     color: {
         type: String,

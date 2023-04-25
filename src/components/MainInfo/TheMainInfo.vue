@@ -76,7 +76,7 @@ const toggleModal = () => {
 </template>
 <style scoped >
 .container {
-    max-width: 1470px;
+    max-width: 100%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;

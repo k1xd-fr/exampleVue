@@ -7,8 +7,7 @@
 <script setup>
 defineProps({
     click:{
-        type:Boolean,
-        default: false
+        type: Function
     }
 })
 </script>

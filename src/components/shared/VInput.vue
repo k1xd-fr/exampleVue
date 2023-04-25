@@ -1,5 +1,6 @@
 <template>
-    <input :value="modelValue" @input="onInput" :type="type" :placeholder="placeholder" required>
+    <textarea v-if="type === 'textarea'" @input="onInput" class="input" :value="modelValue" :placeholder="placeholder"></textarea>
+    <input v-else :value="modelValue" @input="onInput" :type="type" :placeholder="placeholder" required>
 </template>
 <script setup>
 const emit = defineEmits(['update:modelValue'])
@@ -11,6 +12,13 @@ const props = defineProps({
     },
     type: {
         type: String,
+        validator(value) {
+            const types = ['email', 'search', 'password', 'textarea', 'number']
+            if (types.includes(value)) {
+                return value
+            }
+            return 'text'
+        },
         default: 'text'
     },
     modelValue: {

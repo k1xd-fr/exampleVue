@@ -37,7 +37,7 @@ const submitForm = (e) => {
               v-model="name"
               class="input"
               name="name"
-              type="name"
+              type="text"
               placeholder="Enter your Name"
             />
             </label>

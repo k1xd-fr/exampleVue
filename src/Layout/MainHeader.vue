@@ -1,12 +1,19 @@
 <script setup>
+import { ref } from 'vue';
+import VOffCanvasMenu from '../components/UI/VOffCanvasMenu.vue';
 
+const showModal = ref(false)
+const toggleModal = () => {
+  showModal.value = !showModal.value
+}
 </script>
 
 <template>
   <header>
     <VLogo />
     <nav>
-      <VHamburger />
+      <VHamburger :click="toggleModal" />
+      <VOffCanvasMenu :click="toggleModal" :active="showModal" />
     </nav>
   </header>
 </template>
@@ -21,6 +28,4 @@ header {
   margin: 0 auto;
   justify-content: space-between;
 }
-
-
 </style>
