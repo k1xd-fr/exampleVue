@@ -34,12 +34,12 @@ window.addEventListener("keydown", (e) => {
     <the-main-procces />
     <the-main-logos />
     <the-main-form />
-    <div>
+    <div class="adminPanel">
         <transition name="fade">
             <VBackdrop @close="showModal = !showModal" v-if="showModal"></VBackdrop>
         </transition>
         <transition name="slide-down">
-            <VModal v-if="showModal" :title="'My Modal Title'" :content="'Some modal content.'">
+            <VModal @close="showModal = !showModal" v-if="showModal" :title="'sjkfdbuidghuosd'" :content="'Some modal content.'">
             </VModal>
         </transition>
     </div>

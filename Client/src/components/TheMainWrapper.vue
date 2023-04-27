@@ -1,6 +1,7 @@
 <script setup>
 
 import { ref } from 'vue';
+import { fetchData } from '../api/request';
 
 
 const showModal = ref(false)
@@ -8,24 +9,27 @@ const showModal = ref(false)
 const toggleModal = () => {
     showModal.value = !showModal.value
 }
+const data = ref()
+fetchData().then((resp)=>{
+    data.value = resp.data.Wrapper;
+})
 </script>
 
 
 <template>
-    <section class="container">
+    <section v-if="data" class="container">
         <div class="info">
             <h1>
-                We create <span class="black-text">online shops</span>
+               {{ data.title }} <span class="black-text">{{ data.span }}</span>
             </h1>
             <p class="p">
-                Accumsan in nisl nisi scelerisque. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Maecenas
-                ultricies mi eget mauris pharetra et ultrices neque.
+               {{ data.description }}
             </p>
             <p>
                 Image from <span><a class="link-freepik" href="https://www.freepik.com/">Freepik</a></span>
             </p>
             <div>
-                <v-button class="btn" :click="toggleModal">Read more</v-button>
+                <v-button class="btn" :click="toggleModal">{{ data.btn }}</v-button>
                 <transition name="fade">
                     <VBackdrop v-if="showModal" @close="showModal = false"></VBackdrop>
                 </transition>
@@ -36,7 +40,7 @@ const toggleModal = () => {
                 </transition>
             </div>
         </div>
-        <img src="../../img/ShoppingConcepts.jpeg" alt="ShoppingConcepts">
+        <img :src="data.img.url" alt="ShoppingConcepts">
     </section>
 </template>
 

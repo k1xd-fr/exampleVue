@@ -4,27 +4,32 @@ module.exports = ({ env }) => ({
     config: {
       responseTransforms: {
         removeAttributesKey: true,
-        removeDataKey: true,
+        removeDataKey: true
       },
       requestTransforms: {
-        wrapBodyWithDataKey: true,
-      },
-    },
+        wrapBodyWithDataKey: true
+      }
+    }
   },
   upload: {
     config: {
-      provider: "cloudinary",
+      provider: 'cloudinary',
       providerOptions: {
-        cloud_name: env("CLOUDINARY_NAME"),
-        api_key: env("CLOUDINARY_KEY"),
-        api_secret: env("CLOUDINARY_SECRET"),
+        cloud_name: env('CLOUDINARY_NAME'),
+        api_key: env('CLOUDINARY_KEY'),
+        api_secret: env('CLOUDINARY_SECRET')
       },
       actionOptions: {
         upload: {},
         uploadStream: {},
-        delete: {},
-      },
-    },
+        delete: {}
+      }
+    }
   },
-});
+  'strapi-plugin-populate-deep': {
+    config: {
+      defaultDepth: 3 // Default is 5
+    }
+  }
+})
 //
