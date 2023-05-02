@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import { sendData } from '../api/request'
+import { fetchData, sendData } from '../api/request'
 
 let success = ref(false)
 
@@ -20,14 +20,17 @@ const submitForm = (e) => {
     }, 2000)
   })
 }
+const data = ref()
+fetchData().then((resp)=>{
+    data.value = resp.data.GetFreeConsultation
+})
 </script>
 <template>
-  <section class="consult">
+  <section v-if="data" class="consult">
     <div class="consult_container">
-      <h2 class="consult__title">Get Free Consultation</h2>
+      <h2 class="consult__title">{{ data.title }}</h2>
       <p class="consult__p">
-        Want to create your online store and improve your sales? Our Company is the one and only
-        solution you need to build your online business.
+        {{ data.description }}
       </p>
       <div class="container">
         <form @submit.prevent="submitForm" class="form">

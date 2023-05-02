@@ -13,6 +13,8 @@ import TheMainLogos from '../components/TheMainLogos.vue';
 import TheMainForm from '../components/MainForm/TheMainForm.vue';
 import MainFooter from "../Layout/MainFooter.vue"
 import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import state from '../store/store'
 const showModal = ref(false)
 window.addEventListener("keydown", (e) => {
     if (e.altKey && e.key === 'Enter') {
@@ -20,6 +22,18 @@ window.addEventListener("keydown", (e) => {
         showModal.value = !showModal.value
     }
 })
+
+const password = ref('')
+const router = useRouter()
+
+function login() {
+    if (password.value === 'secret') {
+        state.isAuthenticated = true
+        router.push('/admin')
+    } else {
+        alert('Invalid password')
+    }
+}
 </script>
 <template>
     <main-header />
@@ -39,7 +53,14 @@ window.addEventListener("keydown", (e) => {
             <VBackdrop @close="showModal = !showModal" v-if="showModal"></VBackdrop>
         </transition>
         <transition name="slide-down">
-            <VModal @close="showModal = !showModal" v-if="showModal" :title="'sjkfdbuidghuosd'" :content="'Some modal content.'">
+            <VModal @close="showModal = !showModal" v-if="showModal" :title="'Вход в Админ Панель'">
+                <form @submit.prevent="login">
+                    <label>
+                        Password:
+                        <input type="password" v-model="password">
+                    </label>
+                    <button type="submit">Login</button>
+                </form>
             </VModal>
         </transition>
     </div>

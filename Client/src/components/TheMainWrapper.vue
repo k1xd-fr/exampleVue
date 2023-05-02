@@ -16,6 +16,7 @@ fetchData().then((resp)=>{
 </script>
 
 
+
 <template>
     <section v-if="data" class="container">
         <div class="info">

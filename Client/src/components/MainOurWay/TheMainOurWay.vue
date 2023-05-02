@@ -1,29 +1,36 @@
 <template>
-    <section class="OurWay">
-        <h2>Our way</h2>
+    <section v-if="data" class="OurWay">
+        <h2>{{ data.title }}</h2>
         <div class="OurWayCards">
             <div class="mt">
-                <OurWayCard style="max-width: 250px; min-height: 250px" num="2019" :desciption="desc[0]"
-                    class="pink OurWayCard1" />
+                <OurWayCard style="max-width: 250px; min-height: 250px" :num="dataCard[1].num"
+                    :desciption="dataCard[1].description" class="pink OurWayCard1" />
             </div>
             <div class="OurWayMaxCards">
-                <OurWayCard num="2020" :desciption="desc[1]" class="green mr maxCard" />
-                <OurWayCard num="2021" :desciption="desc[1]" class="blue ml maxCard" />
+                <OurWayCard :num="dataCard[0].num" :desciption="dataCard[0].description" class="green mr maxCard" />
+                <OurWayCard :num="dataCard[3].num" :desciption="dataCard[3].description" class="blue ml maxCard" />
             </div>
             <div class="mb">
-                <OurWayCard style="max-width: 250px; min-height: 250px" num="2022" :desciption="desc[0]"
-                    class="black OurWayCard2" />
+                <OurWayCard style="max-width: 250px; min-height: 250px" :num="dataCard[2].num"
+                    :desciption="dataCard[2].description" class="black OurWayCard2" />
             </div>
 
         </div>
     </section>
 </template>
 <script setup>
+import { ref } from 'vue';
+import { fetchData } from '../../api/request';
 import OurWayCard from './OurWayCard.vue';
 
+const data = ref();
 
-const desc = ["Podcasting operational change management inside of workflows to establish a framework.", "Podcasting operational change management inside of workflows to establish a framework. Taking seamless key performance indicators offline to maximise the long tail."]
+let dataCard = null
 
+fetchData().then((resp) => {
+    data.value = resp.data.OurWay
+    dataCard = resp.data.OurWay.OurWayCard
+})
 </script>
 <style scoped>
 .OurWay {
@@ -177,7 +184,8 @@ h2 {
         min-height: 250px
     }
 
-    .ml , .mr {
+    .ml,
+    .mr {
         margin: 0;
     }
 }
@@ -199,4 +207,5 @@ h2 {
 
 .black {
     background-color: #333333 !important
-}</style>
+}
+</style>

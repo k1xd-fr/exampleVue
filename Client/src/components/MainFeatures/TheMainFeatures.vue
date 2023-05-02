@@ -1,39 +1,30 @@
 <template>
-  <section class="features">
+  <section v-if="data, dataCard" class="features">
     <div class="container">
       <div class="title">
-        <h2>Building Beautiful, Functional <span>eCommerce Websites</span></h2>
+        <h2>{{ data.title }} <span>{{ data.span }}</span></h2>
         <p>
-          Natoque penatibus et magnis dis. Blandit aliquam etiam erat velit scelerisque. Imperdiet
-          dui accumsan sit amet nulla facilisi morbi tempus iaculis.&nbsp;
+          {{ data.description }}
         </p>
       </div>
       <div class="cards">
-        <main-features-cards
-          src="../../../../../img/upShop.jpeg"
-          alt="upShop"
-          title="No-limit Hosting"
-        >
-          <template #first>Any domain name</template>
-          <template #second>Unlimited bandwidth</template>
-          <template #third>Diam vel quam</template>
-          <template #four>Suspendisse in</template>
+        <main-features-cards :src="dataCard[0].img[0].url" alt="upShop" :title="dataCard[0].title">
+          <template #first>{{ dataList[0].list1 }}</template>
+          <template #second>{{ dataList[0].list2 }}</template>
+          <template #third>{{ dataList[0].list3 }}</template>
+          <template #four>{{ dataList[0].list4 }}</template>
         </main-features-cards>
-        <main-features-cards src="../../../../../img/basket.jpeg" alt="basket" title="Online Store">
-          <template #first>Loads of functionality</template>
-          <template #second>Account creation</template>
-          <template #third>Customer grouping</template>
-          <template #four>Customize a theme</template>
+        <main-features-cards :src="dataCard[1].img[0].url" alt="basket" :title="dataCard[1].title">
+          <template #first>{{ dataList[1].list1 }}</template>
+          <template #second>{{ dataList[1].list2 }}</template>
+          <template #third>{{ dataList[1].list3 }}</template>
+          <template #four>{{ dataList[1].list4 }}</template>
         </main-features-cards>
-        <main-features-cards
-          src="../../../../../img/discounts.jpeg"
-          alt="discounts"
-          title="Sell Online"
-        >
-          <template #first>Manage inventory</template>
-          <template #second>Customer accounts</template>
-          <template #third>Quisque id diam vel</template>
-          <template #four>Fringilla urna porttitor</template>
+        <main-features-cards :src="dataCard[2].img[0].url" alt="discounts" :title="dataCard[2].title">
+          <template #first>{{ dataList[2].list1 }}</template>
+          <template #second>{{ dataList[2].list2 }}</template>
+          <template #third>{{ dataList[2].list3 }}</template>
+          <template #four>{{ dataList[2].list4 }}</template>
         </main-features-cards>
       </div>
       <p class="freepik">
@@ -44,16 +35,29 @@
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { fetchData } from '../../api/request';
 import MainFeaturesCards from './MainFeaturesCards.vue'
+
+const data = ref()
+let dataCard = null
+let dataList = null
+fetchData().then((resp) => {
+  data.value = resp.data.features
+  dataCard = resp.data.features.featuresCards
+  dataList = resp.data.features.List
+})
 </script>
 
 <style scoped>
 .features {
   background: #333333;
 }
+
 .container {
   max-width: 100%;
 }
+
 .title {
   max-width: max-content;
   margin: 0 auto;
@@ -63,6 +67,7 @@ import MainFeaturesCards from './MainFeaturesCards.vue'
   flex-direction: column;
   gap: 20px;
 }
+
 .title h2 {
   margin: 0 auto;
   max-width: 855px;
@@ -71,9 +76,11 @@ import MainFeaturesCards from './MainFeaturesCards.vue'
   font-weight: 400;
   color: white;
 }
+
 h2 span {
   font-weight: 700;
 }
+
 .title p {
   max-width: 674px;
   line-height: 1.8;
@@ -81,6 +88,7 @@ h2 span {
   margin: 0 auto;
   color: white;
 }
+
 .cards {
   display: flex;
   gap: 30px;
@@ -89,12 +97,14 @@ h2 span {
   flex-wrap: wrap;
   padding: 10px;
 }
+
 @media (max-width: 576px) {
   .title h2 {
     font-size: 1.875rem;
     line-height: 1.1;
   }
 }
+
 .link-freepik {
   text-decoration: underline white;
   color: white;
@@ -107,6 +117,7 @@ h2 span {
 .link-freepik:hover {
   text-decoration: underline #e73d71;
 }
+
 .freepik {
   font-size: 1.125rem;
   color: white;

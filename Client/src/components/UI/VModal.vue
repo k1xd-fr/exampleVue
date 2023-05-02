@@ -3,7 +3,7 @@
     <div class="modal-container">
       <h2>{{ title }}</h2>
       <p>{{ content }}</p>
-      <button @click="$emit('close')">Close Modal</button>
+      <slot/>
     </div>
   </div>
 </template>

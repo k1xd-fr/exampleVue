@@ -4,11 +4,13 @@
 // eslint-disable-next-line no-unused-vars
 const props = defineProps({
     title: String,
+    description:String,
 }
 )
+
 </script>
 <template>
-    <div class="infoCard">
+    <div  class="infoCard">
         <div class="infoCard__icon">
             <div class="iconCircle">
                 <slot name="circle"></slot>
@@ -21,7 +23,7 @@ const props = defineProps({
             {{ title }}
         </h4>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit nullam nunc justo sagittis suscipit ultrices.
+          {{ description }}
         </p>
     </div>
 </template>

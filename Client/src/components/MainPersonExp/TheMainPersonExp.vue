@@ -1,19 +1,25 @@
 <template>
-    <section class="PersonExp">
-        <h2>Our clients love the we build <span>stores experience</span></h2>
+    <section v-if="data" class="PersonExp">
+        <h2>{{ data.title }}<span>{{ data.span }}</span></h2>
         <div class="Cards"> 
-            <person-exp-card :name="name[0]" :description="desc[0]" class="blue" src="../../../img/personImg/person1.jpeg"/>
-            <person-exp-card :name="name[1]" :description="desc[0]" class="green" src="../../../img/personImg/person2.jpeg"/>
-            <person-exp-card :name="name[2]" :description="desc[0]" class="purple" src="../../../img/personImg/person3.jpeg"/>
+            <person-exp-card :name="dataCard[0].name" :description="dataCard[0].description" class="blue" :src="dataCard[0].img[0].url"/>
+            <person-exp-card :name="dataCard[1].name" :description="dataCard[1].description" class="green" :src="dataCard[1].img[0].url"/>
+            <person-exp-card :name="dataCard[2].name" :description="dataCard[2].description" class="purple" :src="dataCard[2].img[0].url"/>
         </div>
     </section>
 </template>
 
 <script setup>
+import { ref } from 'vue';
+import { fetchData } from '../../api/request';
 import PersonExpCard from './PersonExpCard.vue'
 
-const desc = ["Sample text. Click to select the text box. Click again or double click to start editing the text."]
-const name =["Stella Larson" , "Nick Johnson", "Olga Ivanova"]
+const data = ref()
+let dataCard = null
+fetchData().then((resp)=>{
+    data.value = resp.data.personExp
+    dataCard = resp.data.personExp.personExpCard
+})
 </script>
 
 <style scoped>

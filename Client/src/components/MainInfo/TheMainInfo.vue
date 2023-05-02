@@ -2,6 +2,7 @@
 <script setup>
 import MainInfoCard from './MainInfoCard.vue';
 import { ref } from 'vue';
+import { fetchData } from '../../api/request';
 
 const showModal = ref(false)
 
@@ -9,17 +10,23 @@ const toggleModal = () => {
     showModal.value = !showModal.value
 }
 
+let dataCard = null
+const data = ref()
+fetchData().then((resp)=>{
+    data.value = resp.data.MainInfo;
+    dataCard = resp.data.MainInfo.MainInfoCard
+})
 </script>
 
 <template>
-    <section class="container">
+    <section v-if="data" class="container">
         <div class="MainInfo">
 
             <h2 class="info__title">
-                Everything you need
+                {{ data.title }}
                 <br>
                 <span style="font-weight: 700 ;">
-                    to sell products online
+                    {{ data.span }}
                 </span>
             </h2>
 
@@ -28,28 +35,28 @@ const toggleModal = () => {
             <div style="min-height:330px ;">
                 <div class="MainInfoFoot">
                     <div class="MainInfoCards">
-                        <MainInfoCard title="Customize your online store">
+                        <MainInfoCard :title="dataCard[0].title" :description=" dataCard[0].description">
                             <HomeIcon class="imgIcon" />
                             <template #circle>
                                 <div class="circle pink">
                                 </div>
                             </template>
                         </MainInfoCard>
-                        <MainInfoCard title="Run your ecommerce website">
+                        <MainInfoCard :title="dataCard[1].title" :description=" dataCard[1].description">
                             <CartIcon class="imgIcon" />
                             <template #circle>
                                 <div class="circle green">
                                 </div>
                             </template>
                         </MainInfoCard>
-                        <MainInfoCard title="Grow your revenue">
+                        <MainInfoCard :title="dataCard[2].title" :description=" dataCard[2].description">
                             <CodeIcon class="imgIcon" />
                             <template #circle>
                                 <div class="circle blue">
                                 </div>
                             </template>
                         </MainInfoCard>
-                        <MainInfoCard title="Team">
+                        <MainInfoCard :title="dataCard[3].title" :description=" dataCard[3].description">
                             <TeamIcon class="imgIcon" />
                             <template #circle>
                                 <div class="circle orange">
@@ -62,7 +69,7 @@ const toggleModal = () => {
             </div>
         </div>
         <div style="display: flex; justify-content: center;">
-            <v-button class="btn" :click="toggleModal">Learn more</v-button>
+            <v-button class="btn" :click="toggleModal">{{ data.btn }}</v-button>
             <transition name="fade">
                 <VBackdrop v-if="showModal" @close="showModal = false"></VBackdrop>
             </transition>
