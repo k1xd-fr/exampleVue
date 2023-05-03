@@ -1,6 +1,6 @@
 <template>
     <section v-if="data" class="PersonExp">
-        <h2>{{ data.title }}<span>{{ data.span }}</span></h2>
+        <h2>{{ data.title }} <span>{{ data.span }}</span></h2>
         <div class="Cards"> 
             <person-exp-card :name="dataCard[0].name" :description="dataCard[0].description" class="blue" :src="dataCard[0].img[0].url"/>
             <person-exp-card :name="dataCard[1].name" :description="dataCard[1].description" class="green" :src="dataCard[1].img[0].url"/>

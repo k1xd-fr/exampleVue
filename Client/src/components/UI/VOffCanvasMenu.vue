@@ -3,7 +3,7 @@
         <div :class="{ active: active }" id="mySidenav" class="sidenav">
             <a href="javascript:void(0)" class="closebtn" @click="click">&times;</a>
             <div class="link">
-                <a href=" #">Home</a>
+                <a href="/">Home</a>
             </div>
         </div>
     </transition>

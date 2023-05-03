@@ -1,5 +1,6 @@
 import VModal from './VModal.vue'
 import VBackdrop from './VBackdrop.vue'
+import VPreLoader from './VPreLoader.vue'
 
 const components = [
   {
@@ -9,6 +10,10 @@ const components = [
   {
     name: 'VBackdrop',
     component: VBackdrop
+  },
+  {
+    name:'PreLoader',
+    component: VPreLoader
   }
 ]
 export default {
