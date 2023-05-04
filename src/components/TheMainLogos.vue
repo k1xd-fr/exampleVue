@@ -2,20 +2,20 @@
     <section v-if="data" class="logos">
         <h2 class="logos__title">
             
-            <!-- {{ data.title }}  -->
+            {{ data.title }} 
             <span>
-            <!-- {{ data.span }} -->
+            {{ data.span }}
             </span>
             work
         </h2>
         <div class="logos__img">
-            <img src="logos[0].img[0].url" alt="Amazon">
-            <img src="logos[1].img[0].url" alt="Binance">
-            <img src="logos[2].img[0].url" alt="Evga">
-            <img src="logos[3].img[0].url" alt="Tesla">
-            <img src="logos[4].img[0].url" alt="Sony">
-            <img src="logos[5].img[0].url" alt="Crocks">
-            <img src="logos[6].img[0].url" alt="Crolla">
+            <img :src="logos[0].img[0].url" alt="Amazon">
+            <img :src="logos[1].img[0].url" alt="Binance">
+            <img :src="logos[2].img[0].url" alt="Evga">
+            <img :src="logos[3].img[0].url" alt="Tesla">
+            <img :src="logos[4].img[0].url" alt="Sony">
+            <img :src="logos[5].img[0].url" alt="Crocks">
+            <img :src="logos[6].img[0].url" alt="Crolla">
             <img :src="logos[7].img[0].url" alt="Asos">
         </div>
     </section>
@@ -26,11 +26,11 @@ import { ref } from 'vue';
 import { fetchData } from '../api/request';
 
 const data = ref({})
-// let logos = [];
+let logos = [];
 fetchData().then((resp) => {
     data.value = resp.data.Logos
-    console.log(resp.data.Logos)
-    // logos = resp.data.Logos.Logo
+    logos = resp.data.Logos.Logo
+    console.log(logos)
 }).catch(err => {
     console.log(err)
 })

@@ -1,7 +1,7 @@
 <template>
     <div class="logo">
         <a href="https://nicepage.com/">
-            <img src="../../../img/defaultLogo.png" alt="defaultLogo">
+            <img src="/img/defaultLogo.png" alt="defaultLogo">
         </a>
     </div>
 </template>
