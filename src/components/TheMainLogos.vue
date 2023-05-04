@@ -1,12 +1,10 @@
 <template>
     <section v-if="data" class="logos">
         <h2 class="logos__title">
-            
-            {{ data.title }} 
+            {{ data.title }}
             <span>
-            {{ data.span }}
+                {{ data.span }}
             </span>
-            work
         </h2>
         <div class="logos__img">
             <img :src="logos[0].img[0].url" alt="Amazon">
@@ -21,18 +19,17 @@
     </section>
 </template>
 
-<script>
+<script setup>
 import { ref } from 'vue';
 import { fetchData } from '../api/request';
 
-const data = ref({})
+const data = ref()
 let logos = [];
 fetchData().then((resp) => {
     data.value = resp.data.Logos
     logos = resp.data.Logos.Logo
-    console.log(logos)
 }).catch(err => {
-    console.log(err)
+    console.log(err);
 })
 
 </script>
