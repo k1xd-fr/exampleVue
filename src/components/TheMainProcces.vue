@@ -1,7 +1,6 @@
 <template>
-  <section class="Procces">
-    <p>Article evident arrived express highest men did boy. Mistress sensible entirely am so. Quick can manor smart money
-      hopes worth too. Comfort produce husband boy her had hearing.</p>
+  <section v-if="data" class="Procces">
+    <p>{{ data.title }}</p>
     <div class="circles">
       <div class="circle p150  purple">
         <h3 class="count1"></h3><span class="purple">%</span>
@@ -18,7 +17,12 @@
 </template>
 
 <script setup>
-
+import { ref } from 'vue';
+import { fetchData } from '../api/request';
+const data = ref()
+fetchData().then((resp) => {
+  data.value = resp.data.Procces
+})
 </script>
 
 <style scoped>

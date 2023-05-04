@@ -12,7 +12,6 @@
             <h4>btn-name:</h4>
             <v-input v-model="data.data.Wrapper.btn" class="input" />
         </div>
-        <v-button class="btn">Save Data</v-button>
         <div v-if="data.data.MainInfo" class="mainInfo container">
             <h2>MainInfo-section</h2>
             <h4>title:</h4>
@@ -53,7 +52,6 @@
             </div>
 
         </div>
-        <v-button class="btn">Save Data</v-button>
         <div v-if="data.data.OurWay" class="OurWay container">
             <h2>OurWay-section</h2>
             <v-input v-model="data.data.OurWay.title" class="input" />
@@ -88,7 +86,6 @@
                 </div>
             </div>
         </div>
-        <v-button class="btn">Save Data</v-button>
         <div v-if="data.data.GetFreeConsultation" class="GetFreeConsultation container">
             <h2>Consultation-section</h2>
             <h4>title:</h4>
@@ -96,7 +93,6 @@
             <h4>description:</h4>
             <v-input v-model="data.data.GetFreeConsultation.description" class="input" type="textarea" />
         </div>
-        <v-button class="btn">Save Data</v-button>
         <div v-if="data.data.features" class="features container">
             <h2>Features-section</h2>
             <h4>title:</h4>
@@ -180,7 +176,6 @@
                 </div>
             </div>
         </div>
-        <v-button class="btn">Save Data</v-button>
         <div v-if="data.data.GetYoursToday" class="GetYoursToday container">
             <h2>GetYoursToday-section</h2>
             <h4>title:</h4>
@@ -227,7 +222,6 @@
             </ul>
 
         </div>
-        <v-button class="btn">Save Data</v-button>
         <div v-if="data.data.personExp" class="PersonExp container">
             <h2>PersonExp-section</h2>
             <h4>title:</h4>
@@ -258,8 +252,8 @@
                 </div>
             </div>
         </div>
-        <v-button class="btn">Save Data</v-button>
         <PreLoader v-if="isLoading" />
+        <v-button class="btn">Save Data</v-button>
     </form>
 </template>
 

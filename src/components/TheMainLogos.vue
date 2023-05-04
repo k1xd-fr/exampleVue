@@ -1,30 +1,49 @@
 <template>
-    <section class="logos">
+    <section v-if="data" class="logos">
         <h2 class="logos__title">
-            When working  with us, <span>
-                you're in good company:
+            
+            <!-- {{ data.title }}  -->
+            <span>
+            <!-- {{ data.span }} -->
             </span>
+            work
         </h2>
         <div class="logos__img">
-            <img src="../../img/Logos/logoAmazon.svg" alt="Amazon">
-            <img src="../../img/Logos/logoBinance.svg" alt="Binance">
-            <img src="../../img/Logos/logoEvga.svg" alt="Evga">
-            <img src="../../img/Logos/logoTesla.svg" alt="Tesla">
-            <img src="../../img/Logos/logoSony.svg" alt="Sony">
-            <img src="../../img/Logos/logoCrocs.svg" alt="Crocks">
-            <img src="../../img/Logos/logoCrolla.svg" alt="Crolla">
-            <img src="../../img/Logos/logoAsos.svg" alt="Asos">
+            <img src="logos[0].img[0].url" alt="Amazon">
+            <img src="logos[1].img[0].url" alt="Binance">
+            <img src="logos[2].img[0].url" alt="Evga">
+            <img src="logos[3].img[0].url" alt="Tesla">
+            <img src="logos[4].img[0].url" alt="Sony">
+            <img src="logos[5].img[0].url" alt="Crocks">
+            <img src="logos[6].img[0].url" alt="Crolla">
+            <img :src="logos[7].img[0].url" alt="Asos">
         </div>
     </section>
 </template>
 
+<script>
+import { ref } from 'vue';
+import { fetchData } from '../api/request';
+
+const data = ref({})
+// let logos = [];
+fetchData().then((resp) => {
+    data.value = resp.data.Logos
+    console.log(resp.data.Logos)
+    // logos = resp.data.Logos.Logo
+}).catch(err => {
+    console.log(err)
+})
+
+</script>
 <style scoped>
-.logos{
+.logos {
     background: #e73d71;
     min-height: 494px;
 }
-.logos__title{
-    margin:0 auto;
+
+.logos__title {
+    margin: 0 auto;
     padding-top: 53px;
     max-width: 735px;
     color: white;
@@ -32,14 +51,15 @@
     line-height: 1.1;
     font-weight: 400;
     text-align: center;
-    
+
 }
-.logos__title span{
+
+.logos__title span {
     font-weight: 700;
 }
 
 
-.logos__img{
+.logos__img {
     display: flex;
     flex-direction: row;
     max-width: 735px;
@@ -47,25 +67,29 @@
     margin: 35px auto 53px;
 
 }
-img{
+
+img {
     object-fit: contain;
     width: 25%;
     padding: 35px 20px;
 }
+
 @media (max-width: 767px) {
-    img{
-    width: 50%;
-    margin: 0 auto;
-    padding: 50px;
+    img {
+        width: 50%;
+        margin: 0 auto;
+        padding: 50px;
+    }
 }
-}
+
 @media (max-width: 535px) {
-    .logos__title{
+    .logos__title {
         font-size: 1.875rem;
     }
-    img{
-    width: 75%;
-    margin: 0 auto;
-}
+
+    img {
+        width: 75%;
+        margin: 0 auto;
+    }
 }
 </style>
